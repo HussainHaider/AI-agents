@@ -33,3 +33,6 @@ streamlit
 
 # type hinting and data validation
 pydantic
+
+# Output parsers
+grandalf
