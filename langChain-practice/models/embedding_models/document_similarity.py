@@ -5,7 +5,7 @@ import numpy as np
 
 load_dotenv()
 
-embedding = OpenAIEmbeddings(model='text-embedding-3-large', dimensions=32)
+embedding = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=32)
 
 documents = [
     "Babar Azam is a Pakistani cricketer known for his elegant batting and consistent performances across formats.",
@@ -17,10 +17,10 @@ documents = [
     "Saeed Anwar was a stylish Pakistani opener famous for his fluent batting and high scores in ODI cricket.",
     "Younis Khan is a former Pakistani batsman who holds the record for the most Test runs by a Pakistani player.",
     "Shahid Afridi was a Pakistani all-rounder known for his explosive batting and entertaining style of play.",
-    "Abdul Qadir was a legendary Pakistani leg-spinner who played a major role in popularizing leg-spin bowling."
+    "Abdul Qadir was a legendary Pakistani leg-spinner who played a major role in popularizing leg-spin bowling.",
 ]
 
-query = 'tell me about Afridi'
+query = "tell me about Afridi"
 
 doc_embeddings = embedding.embed_documents(documents)
 query_embeddings = embedding.embed_query(query)
@@ -28,7 +28,7 @@ query_embeddings = embedding.embed_query(query)
 scores = cosine_similarity([query_embeddings], doc_embeddings)[0]
 print(scores)
 
-index, score = sorted(list(enumerate(scores)),key=lambda x:x[1])[-1]
+index, score = sorted(list(enumerate(scores)), key=lambda x: x[1])[-1]
 
 print(query)
 print(documents[index])

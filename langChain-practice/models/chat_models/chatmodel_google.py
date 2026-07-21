@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model='gemini-1.5-pro')
+model = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
 
-result = model.invoke('What is the capital of Pakistan?')
+result = model.invoke("What is the capital of Pakistan?")
 
 print(result.content)
