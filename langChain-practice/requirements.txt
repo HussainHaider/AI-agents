@@ -1,6 +1,7 @@
 # LangChain Core
 langchain
 langchain-core
+langchain-community
 
 # Pydantic
 pydantic[email]
@@ -36,3 +37,6 @@ pydantic
 
 # Output parsers
 grandalf
+
+# PDF processing
+pypdf
