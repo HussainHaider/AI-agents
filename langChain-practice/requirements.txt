@@ -42,3 +42,10 @@ grandalf
 
 # PDF processing
 pypdf
+
+# Vector Database
+chromadb
+langchain-chroma
+
+# Tokenization
+tiktoken
