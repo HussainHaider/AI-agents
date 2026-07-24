@@ -2,6 +2,8 @@
 langchain
 langchain-core
 langchain-community
+langchain-text-splitters
+langchain-experimental
 
 # Pydantic
 pydantic[email]
