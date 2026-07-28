@@ -8,8 +8,12 @@ from langchain_core.output_parsers import StrOutputParser
 
 video_id = "Gfr50f6ZBvo" # only the ID, not full URL
 try:
-    # If you don’t care which language, this returns the “best” one
-    transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=["en"])
+    # v1.x API: instantiate, then fetch. Returns a FetchedTranscript object.
+    ytt_api = YouTubeTranscriptApi()
+    fetched_transcript = ytt_api.fetch(video_id, languages=["en"])
+
+    # to_raw_data() gives a list of {"text": ..., "start": ..., "duration": ...} dicts
+    transcript_list = fetched_transcript.to_raw_data()
 
     # Flatten it to plain text
     transcript = " ".join(chunk["text"] for chunk in transcript_list)
