@@ -57,3 +57,6 @@ wikipedia
 
 # YouTube transcript loading (RAG)
 youtube-transcript-api
+
+# Tools (DuckDuckGo search)
+ddgs

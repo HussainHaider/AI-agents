@@ -3,10 +3,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
-from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
+from langchain_core.runnables import (
+    RunnableParallel,
+    RunnablePassthrough,
+    RunnableLambda,
+)
 from langchain_core.output_parsers import StrOutputParser
 
-video_id = "Gfr50f6ZBvo" # only the ID, not full URL
+video_id = "Gfr50f6ZBvo"  # only the ID, not full URL
 try:
     # v1.x API: instantiate, then fetch. Returns a FetchedTranscript object.
     ytt_api = YouTubeTranscriptApi()
@@ -24,10 +28,7 @@ except TranscriptsDisabled:
 
 
 # Step 1b - Indexing (Text Splitting)
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,
-    chunk_overlap=200
-)
+splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 chunks = splitter.create_documents([transcript])
 print(f"Number of chunks: {len(chunks)}")
 
@@ -36,7 +37,9 @@ embeddings = OpenAIEmbeddings()
 vector_store = FAISS.from_documents(chunks, embeddings)
 
 # Step 2 - Retrieval
-retriever = vector_store.as_retriever(search_kwargs={"k": 3}, search_type="similarity")  # k = top results
+retriever = vector_store.as_retriever(
+    search_kwargs={"k": 3}, search_type="similarity"
+)  # k = top results
 # retriever.invoke('What is deepmind')
 
 # Step 3 - Augmentation
@@ -50,11 +53,11 @@ prompt = PromptTemplate(
       {context}
       Question: {question}
     """,
-    input_variables = ['context', 'question']
+    input_variables=["context", "question"],
 )
 
-question          = "is the topic of nuclear fusion discussed in this video? if yes then what was discussed"
-retrieved_docs    = retriever.invoke(question)
+question = "is the topic of nuclear fusion discussed in this video? if yes then what was discussed"
+retrieved_docs = retriever.invoke(question)
 
 context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
 
@@ -67,13 +70,16 @@ print(f"Response: {response}")
 
 # Building a chain for the entire process
 def format_docs(retrieved_docs):
-  context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
-  return context_text
+    context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
+    return context_text
 
-parallel_chain = RunnableParallel({
-    "context": retriever | RunnableLambda(format_docs),
-    "question": RunnablePassthrough()
-})
+
+parallel_chain = RunnableParallel(
+    {
+        "context": retriever | RunnableLambda(format_docs),
+        "question": RunnablePassthrough(),
+    }
+)
 
 parser = StrOutputParser()
 
