@@ -23,6 +23,7 @@ debugpy==1.8.21
 distro==1.9.0
 dotenv==0.9.9
 executing==2.2.1
+faiss-cpu==1.15.0
 fake-useragent==2.2.0
 frozenlist==1.8.0
 gitdb==4.0.12
@@ -96,6 +97,7 @@ pydantic-settings==2.15.0
 pydeck==0.9.3
 pygments==2.20.0
 pyjwt==2.13.0
+pypdf==6.16.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 python-multipart==0.0.32
