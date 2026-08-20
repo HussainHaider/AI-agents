@@ -61,6 +61,7 @@ langchain-protocol==0.0.18
 langchain-text-splitters==1.1.2
 langgraph==1.2.10
 langgraph-checkpoint==4.1.1
+langgraph-checkpoint-postgres==3.1.2
 langgraph-checkpoint-sqlite==3.1.1
 langgraph-prebuilt==1.1.0
 langgraph-sdk==0.4.2
@@ -87,6 +88,9 @@ prompt-toolkit==3.0.53
 propcache==0.5.2
 protobuf==7.35.1
 psutil==7.2.2
+psycopg==3.3.4
+psycopg-binary==3.3.4
+psycopg-pool==3.3.1
 ptyprocess==0.7.0
 pure-eval==0.2.3
 pyarrow==25.0.0
