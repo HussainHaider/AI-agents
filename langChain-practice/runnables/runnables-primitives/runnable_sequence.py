@@ -10,7 +10,7 @@ prompt1 = PromptTemplate(
     template="Write a joke about {topic}", input_variables=["topic"]
 )
 
-model = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
+model = ChatOpenAI(model_name="gpt-5.6-terra", temperature=0.9)
 
 parser = StrOutputParser()
 

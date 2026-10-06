@@ -17,7 +17,7 @@ llm = HuggingFaceEndpoint(
 
 huggingFace_model = ChatHuggingFace(llm=llm)
 
-openAI_model = ChatOpenAI()
+openAI_model = ChatOpenAI(model="gpt-5.6-terra")
 
 str_parser = StrOutputParser()
 

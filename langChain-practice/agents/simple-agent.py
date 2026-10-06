@@ -21,7 +21,7 @@ def get_weather_data(city: str) -> str:
     return response.json()
 
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model_name="gpt-5.6-terra", temperature=0)
 
 # Step 2: Define the standard ReAct prompt inline (same as hwchase17/react)
 prompt = PromptTemplate.from_template(
