@@ -24,7 +24,7 @@ prompt = PromptTemplate(
     template="Write a joke about {topic}", input_variables=["topic"]
 )
 
-model = ChatOpenAI()
+model = ChatOpenAI(model="gpt-5.6-terra")
 
 parser = StrOutputParser()
 

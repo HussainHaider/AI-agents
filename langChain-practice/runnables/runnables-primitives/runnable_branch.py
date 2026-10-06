@@ -17,7 +17,7 @@ prompt2 = PromptTemplate(
     template="Summarize the following text \n {text}", input_variables=["text"]
 )
 
-model = ChatOpenAI()
+model = ChatOpenAI(model="gpt-5.6-terra")
 
 parser = StrOutputParser()
 

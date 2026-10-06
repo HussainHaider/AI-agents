@@ -4,7 +4,7 @@ import streamlit as st
 from langchain_core.prompts import PromptTemplate,load_prompt
 
 load_dotenv()
-model = ChatOpenAI()
+model = ChatOpenAI(model="gpt-5.6-terra")
 
 st.header('Reasearch Tool')
 

@@ -43,7 +43,7 @@ retriever = vector_store.as_retriever(
 # retriever.invoke('What is deepmind')
 
 # Step 3 - Augmentation
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model_name="gpt-5.6-terra", temperature=0)
 prompt = PromptTemplate(
     template="""
       You are a helpful assistant.

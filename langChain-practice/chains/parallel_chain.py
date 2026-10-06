@@ -14,7 +14,7 @@ llm = HuggingFaceEndpoint(
 
 hf_model = ChatHuggingFace(llm=llm)
 
-openai_model = ChatOpenAI()
+openai_model = ChatOpenAI(model="gpt-5.6-terra")
 
 notes_prompt = PromptTemplate(
     template='Generate short and simple notes from the following text \n {text}',

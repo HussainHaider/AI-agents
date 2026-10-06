@@ -3,7 +3,7 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-model = ChatOpenAI()
+model = ChatOpenAI(model="gpt-5.6-terra")
 
 chat_history = [
     SystemMessage(content="You are a helpful assistant."),

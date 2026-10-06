@@ -18,7 +18,7 @@ prompt1 = PromptTemplate(
     input_variables=['topic']
 )
 
-model = ChatOpenAI()
+model = ChatOpenAI(model="gpt-5.6-terra")
 
 parser = StrOutputParser()
 

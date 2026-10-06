@@ -61,7 +61,7 @@ similarity_retriever = vectorstore.as_retriever(
 
 multiquery_retriever = MultiQueryRetriever.from_llm(
     retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
-    llm=ChatOpenAI(model="gpt-3.5-turbo"),
+    llm=ChatOpenAI(model="gpt-5.6-terra"),
 )
 
 # Query

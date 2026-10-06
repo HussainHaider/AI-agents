@@ -37,7 +37,7 @@ def convert(
 
 # print(convert.invoke({"base_currency_value": 10, "conversion_rate": 277.6957}))
 
-llm = ChatOpenAI()
+llm = ChatOpenAI(model="gpt-5.6-terra")
 
 messages = [
     HumanMessage(

@@ -48,7 +48,7 @@ vectorstore = FAISS.from_documents(docs, embedding_model)
 base_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
 # Set up the compressor using an LLM
-llm = ChatOpenAI(model="gpt-3.5-turbo")
+llm = ChatOpenAI(model="gpt-5.6-terra")
 compressor = LLMChainExtractor.from_llm(llm)
 
 # Create the contextual compression retriever
